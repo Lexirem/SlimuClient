@@ -18,7 +18,7 @@ class App extends Component {
       <AuthProvider>       
         <div className="container">
           <Navbar />
-          <h1>Basic React Authentication</h1>
+          <h1>Slimu Anime 2.0</h1>
           <Switch>
             <AnonRoute path="/login" component={Login} />
             <AnonRoute path="/signup" component={SignUp} />
