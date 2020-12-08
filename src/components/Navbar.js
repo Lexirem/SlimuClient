@@ -6,6 +6,7 @@ import { withAuth } from '../lib/AuthProvider';
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
+    console.log(this.props)
     return (
       <nav className='navbar'>
         <Link to={"/"} id='home-btn'>
@@ -13,7 +14,7 @@ class Navbar extends Component {
         </Link>
         {isLoggedin ? (
           <>
-            <p className='navbar-user'>Profile: {user.username}</p>
+            <Link to={`/profile/${user._id}`} className='navbar-user'>{user.username}</Link>
             <button className='navbar-button' onClick={logout}>Logout</button>
           </>
         ) : (

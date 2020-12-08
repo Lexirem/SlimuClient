@@ -1,5 +1,5 @@
 import React from "react";
-import auth from "./auth-service";	// Importamos funciones para llamadas axios a la API
+import auth from "./auth-service";	
 const { Consumer, Provider } = React.createContext();
 
 // HOC para crear Consumer
@@ -8,7 +8,6 @@ const withAuth = (WrappedComponent) => {
     render() {    
       return (
         <Consumer>
-        {/* El componente <Consumer> provee un callback que recibe el "value" con el objeto Providers */}  
         { 
           ({login, signup, user, logout, isLoggedin}) => {
             return (
@@ -41,17 +40,17 @@ class AuthProvider extends React.Component {
 
   signup = (user) => {
     //desestructuramos username y password de user  
-    const { username, password } = user;
+    const { email, password } = user;
     
-    auth.signup({ username, password })
+    auth.signup({ email, password })
       .then((user) => this.setState({ isLoggedin: true, user: user }))
       .catch(({response}) => this.setState({ message: response.data.statusMessage}));
   };
 
   login = (user) => {
-    const { username, password } = user;
+    const { email, password } = user;
 
-    auth.login({ username, password })
+    auth.login({ email, password })
       .then((user) => this.setState({ isLoggedin: true, user: user }))
       .catch((err) => console.log(err));
   };
@@ -75,10 +74,10 @@ class AuthProvider extends React.Component {
       (<Provider value={{ isLoggedin, user, login, logout, signup}} >
          {this.props.children}
       </Provider>)
-    )	/*<Provider> "value={}" datos que estarán disponibles para todos los componentes <Consumer> */
+    )	
   }
 }
 
-export { Consumer, withAuth };		//  <--	RECUERDA EXPORTAR  ! ! !
+export { Consumer, withAuth };		
 
-export default AuthProvider;		//	<--	RECUERDA EXPORTAR  ! ! !
+export default AuthProvider;		

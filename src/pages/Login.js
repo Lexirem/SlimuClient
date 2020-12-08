@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { withAuth } from '../lib/AuthProvider';
 
 class Login extends Component {
-  state = { username: "", password: "" };
+  state = { email: "", password: "" };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
-    this.props.login({ username, password });
+    const { email, password } = this.state;
+    this.props.login({ email, password });
   };
 
   handleChange = event => {
@@ -16,7 +16,7 @@ class Login extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div>
@@ -24,8 +24,8 @@ class Login extends Component {
 
         <form onSubmit={this.handleFormSubmit}>
           
-          <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
+          <label>Email:</label>
+          <input type="text" name="email" value={email} onChange={this.handleChange}/>
 
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />

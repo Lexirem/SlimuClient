@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axiosRequestFunctions from '../lib/auth-service';
+import axios from 'axios';
 import { withAuth } from '../lib/AuthProvider';
+import service from '../lib/auth-service';
 
 
 class Profile extends Component {
@@ -29,7 +30,7 @@ class Profile extends Component {
     return (
       <div>
         <p>Welcome {this.state.user.username}</p>
-        <img src={this.state.user.image} alt="profile image"/>
+        <img src={this.state.user.image} alt="profile"/>
         <Link path="/:id/edit">Edit your Profile</Link>
         <section>
           <p>You Anime List</p> 

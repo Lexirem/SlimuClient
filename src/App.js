@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
-import Private from "./pages/Private";
+import Profile from "./pages/Profile";
 
 class App extends Component {
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
             <AnonRoute path="/login" component={Login} />
             <AnonRoute path="/signup" component={SignUp} />
             <Route exact path="/" component={Home} />
-            <PrivateRoute exact path='/private' component={Private} />
+            <PrivateRoute exact path='/profile' component={Profile} />
           </Switch>  
         </div>
 

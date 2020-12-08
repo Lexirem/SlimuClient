@@ -8,28 +8,24 @@ class Auth {
     });
   }
 
-  signup({ username, password }) {
+  signup({ email, password }) {
     return this.auth
-      .post("/auth/signup", { username, password })
+      .post("/auth/signup", { email, password })
       .then(({ data }) => data);
-    // .then((response) => response.data);
   }
 
-  login({ username, password }) {
+  login({ email, password }) {
     return this.auth
-      .post("/auth/login", { username, password })
+      .post("/auth/login", { email, password })
       .then(({ data }) => data);
-    // .then((response) => response.data);
   }
 
   logout() {
     return this.auth.post("/auth/logout", {}).then(({ data }) => data);
-    // return this.auth.post("/auth/logout", {}).then((response) => response.data);
   }
 
   me() {
     return this.auth.get("/auth/me").then(({ data }) => data);
-    // return this.auth.get("/auth/me").then((response) => response.data);
   }
 }
 
