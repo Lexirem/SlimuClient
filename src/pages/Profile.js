@@ -13,9 +13,6 @@ class Profile extends Component {
   getProfile = async () => {
     try{
       const res = await service.profile(this.props.match.params.id);
-      let getAnime = await axios.get(
-        `${process.env.REACT_APP_API_URI}/profile/user/${this.props.match.params.id}`
-      );
       this.setState({ user: res, myAnime: getAnime.data })
     } catch (error) {
       console.log(error);
