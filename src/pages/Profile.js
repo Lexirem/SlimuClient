@@ -1,17 +1,53 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axiosRequestFunctions from '../lib/auth-service';
+import { withAuth } from '../lib/AuthProvider';
+
 
 class Profile extends Component {
-    render() {
-        return (
-            <div>
-                <h2>Welcome {username}</h2>
-                <img src="" alt="profile image"/>
-                <Link path="/:id/edit">
-                <p>You Anime List</p>  
-            </div>
-        )
+  state = {
+    userId: this.props.user._id,
+    user: {}, 
+  };
+  getProfile = async () => {
+    try{
+      const res = await service.profile(this.props.match.params.id);
+      let getAnime = await axios.get(
+        `${process.env.REACT_APP_API_URI}/profile/user/${this.props.match.params.id}`
+      );
+      this.setState({ user: res, myAnime: getAnime.data })
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  componentDidMount(){
+      this.getProfile();
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Welcome {this.state.user.username}</p>
+        <img src={this.state.user.image} alt="profile image"/>
+        <Link path="/:id/edit">Edit your Profile</Link>
+        <section>
+          <p>You Anime List</p> 
+          <div>
+          {this.state.myAnime ? this.state.myAnime.map((data, index) => {
+            return(
+                <div>
+                    <img src={data.image} alt="anime cover"/>
+                    <h4>{data.title}</h4>
+                    <button>Remove from List</button>
+                </div>    
+            )
+          }) : null}
+          </div> 
+        </section>
+      </div>
+    )
+  }
 }
 
-export default Profile;
+export default withAuth(Profile);

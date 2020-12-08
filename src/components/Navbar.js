@@ -9,11 +9,11 @@ class Navbar extends Component {
     return (
       <nav className='navbar'>
         <Link to={"/"} id='home-btn'>
-          <h4>Home</h4>
+        <h4>Slimu Anime 2.0</h4>
         </Link>
         {isLoggedin ? (
           <>
-            <p className='navbar-user'>username: {user.username}</p>
+            <p className='navbar-user'>Profile: {user.username}</p>
             <button className='navbar-button' onClick={logout}>Logout</button>
           </>
         ) : (
