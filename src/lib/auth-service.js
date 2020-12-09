@@ -27,6 +27,9 @@ class Auth {
   me() {
     return this.auth.get("/auth/me").then(({ data }) => data);
   }
+  editUser(){
+    return this.auth.get(`/profile/:id/edit`).then(({data}) => data);
+  }
 }
 
 const axiosRequestFunctions = new Auth();

@@ -36,10 +36,10 @@ class Home extends Component {
         {this.state.animeList ? this.state.animeList.map((datos) => {
           return(
             <div>
-              <img src={datos.posterImage.small} alt="anime cover"/>
-              <h4>{datos.titles.en_jp}</h4>
+              <img src={datos.posterImage.small} alt="anime cover" onClick=""/>
+              {/* <h4>{datos.titles.en_jp}</h4>
               <h4>{datos.titles.ja_jp}</h4>
-              <p>{datos.description}</p>
+              <p>{datos.description}</p> */}
             </div>
           )
         }) : null

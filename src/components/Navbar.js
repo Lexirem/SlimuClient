@@ -14,7 +14,7 @@ class Navbar extends Component {
         </Link>
         {isLoggedin ? (
           <>
-            <Link to={`/profile/${user._id}`} className='navbar-user'>{user.username}</Link>
+            <Link to={`/profile/${user._id}`} className='navbar-user'>{user.email}</Link>
             <button className='navbar-button' onClick={logout}>Logout</button>
           </>
         ) : (

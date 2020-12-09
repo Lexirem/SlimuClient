@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import Profile from "./pages/Profile";
+import EditUser from "./pages/EditUser";
+import AnimeDetails from "./pages/AnimeDetails";
 
 class App extends Component {
   render() {
@@ -22,7 +24,9 @@ class App extends Component {
             <AnonRoute path="/login" component={Login} />
             <AnonRoute path="/signup" component={SignUp} />
             <Route exact path="/" component={Home} />
-            <PrivateRoute exact path='/profile' component={Profile} />
+            <PrivateRoute exact path='/profile/:id' component={Profile} />
+            <PrivateRoute exact path='/profile/:id/edit' component={EditUser} />
+            <PrivateRoute exact path="/details" component={AnimeDetails}/>
           </Switch>  
         </div>
 

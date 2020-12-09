@@ -13,10 +13,22 @@ class Profile extends Component {
   getProfile = async () => {
     try{
       const res = await service.profile(this.props.match.params.id);
-      this.setState({ user: res, myAnime: getAnime.data })
+      this.setState({ user: res})
     } catch (error) {
       console.log(error);
     }
+  };
+
+  DeleteAnime = () =>{
+    const { params } = this.props.match;
+    axios
+      .delete(`${process.env.REACT_APP_API_URI}/profile/${params.id}/delete)`)
+      .then(() => {
+        this.props.history.push("/profile/:id")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   componentDidMount(){
@@ -26,18 +38,18 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <p>Welcome {this.state.user.username}</p>
+        <h2>Welcome {this.state.user.username}</h2>
         <img src={this.state.user.image} alt="profile"/>
-        <Link path="/:id/edit">Edit your Profile</Link>
+        <Link to="/profile/:id/edit">Edit your Profile</Link>
         <section>
-          <p>You Anime List</p> 
+          <p>Your Anime List</p> 
           <div>
           {this.state.myAnime ? this.state.myAnime.map((data, index) => {
             return(
                 <div>
                     <img src={data.image} alt="anime cover"/>
                     <h4>{data.title}</h4>
-                    <button>Remove from List</button>
+                    <button onClick={() => this.DeleteAnime()}>Remove from List</button>
                 </div>    
             )
           }) : null}
