@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Home extends Component {
@@ -36,10 +37,7 @@ class Home extends Component {
         {this.state.animeList ? this.state.animeList.map((datos) => {
           return(
             <div>
-              <img src={datos.posterImage.small} alt="anime cover" onClick=""/>
-              {/* <h4>{datos.titles.en_jp}</h4>
-              <h4>{datos.titles.ja_jp}</h4>
-              <p>{datos.description}</p> */}
+              <Link to={{pathname: "/details", state: { anime: datos } }}><img src={datos.posterImage.small} alt="anime cover" /> </Link>
             </div>
           )
         }) : null

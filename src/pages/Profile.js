@@ -8,7 +8,7 @@ import service from '../lib/auth-service';
 class Profile extends Component {
   state = {
     userId: this.props.user._id,
-    user: {}, 
+    user: {},
   };
   getProfile = async () => {
     try{
@@ -19,16 +19,9 @@ class Profile extends Component {
     }
   };
 
-  DeleteAnime = () =>{
-    const { params } = this.props.match;
-    axios
-      .delete(`${process.env.REACT_APP_API_URI}/profile/${params.id}/delete)`)
-      .then(() => {
-        this.props.history.push("/profile/:id")
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  deleteAnime = async(props) =>{
+    let { image, name }= props;
+    await axios.post(`http://localhost:4000/profile/favorites/${this.props.user._id}`, {image, name})
   };
 
   componentDidMount(){
@@ -36,20 +29,21 @@ class Profile extends Component {
   }
 
   render() {
+    console.log(this.props.user.myAnime, "data")
     return (
       <div>
         <h2>Welcome {this.state.user.username}</h2>
         <img src={this.state.user.image} alt="profile"/>
-        <Link to="/profile/:id/edit">Edit your Profile</Link>
+        <Link to={`/profile/${this.props.match.params.id}/edit`}>Edit your Profile</Link>
         <section>
           <p>Your Anime List</p> 
           <div>
-          {this.state.myAnime ? this.state.myAnime.map((data, index) => {
+          {this.props.user.myAnime ? this.props.user.myAnime.map((data, index) => {
             return(
                 <div>
                     <img src={data.image} alt="anime cover"/>
                     <h4>{data.title}</h4>
-                    <button onClick={() => this.DeleteAnime()}>Remove from List</button>
+                    <button onClick={() => this.deleteAnime()}>Remove from List</button>
                 </div>    
             )
           }) : null}
