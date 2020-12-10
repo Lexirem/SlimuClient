@@ -20,8 +20,8 @@ class Profile extends Component {
   };
 
   deleteAnime = async(props) =>{
-    let { image, name }= props;
-    await axios.post(`http://localhost:4000/profile/favorites/${this.props.user._id}`, {image, name})
+    let { image, name } = props;
+    await axios.delete(`http://localhost:4000/profile/favorites/${this.props.user._id}`, {image, name})
   };
 
   componentDidMount(){
@@ -29,10 +29,10 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.props.user.myAnime, "data")
+    console.log(this.props.user.username, "data")
     return (
       <div>
-        <h2>Welcome {this.state.user.username}</h2>
+        <h2>Welcome {this.props.user.username} </h2>
         <img src={this.state.user.image} alt="profile"/>
         <Link to={`/profile/${this.props.match.params.id}/edit`}>Edit your Profile</Link>
         <section>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import axios from "axios";
 
@@ -21,13 +20,12 @@ class AnimeDetails extends Component {
     console.log(this.props.location.state.anime);
     return (
       <div>
-        <img src={this.state.anime.posterImage.small} alt="anime cover" />
-        <h4>{this.state.anime.titles.en_jp}</h4>
+        <h2>{this.state.anime.titles.en_jp}</h2>
         <h4>{this.state.anime.titles.ja_jp}</h4>
+        <img src={this.state.anime.posterImage.small} alt="anime cover" />
         <p><b>Episodes:</b>{this.state.anime.episodeCount}</p>
         <p><b>Status:</b>{this.state.anime.status}</p>
         <p>{this.state.anime.description}</p>
-
         <button
           onClick={() =>
             this.addToMyList({image: this.state.anime.posterImage.small, name: this.state.anime.titles.en_jp})
