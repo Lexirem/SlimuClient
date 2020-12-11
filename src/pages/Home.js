@@ -32,7 +32,7 @@ class Home extends Component {
   render(){
     console.log(this.state.animeList, "array")
     return (
-      <div> 
+      <div className="home"> 
         <h2>Welcome to Slimu Anime 2.0</h2>
         <div className="animeList">
         {this.state.animeList ? this.state.animeList.map((datos) => {

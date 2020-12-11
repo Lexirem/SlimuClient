@@ -25,9 +25,14 @@ input{
   background: #0d1196; 
 }
 
-nav.navbar .navbar-user{
+.navbar-user{
+  width: auto;
   margin-left: 10px;
   color: white;
+}
+
+.navbar-button{
+  width: 20%;
 }
 
 #home-btn {
@@ -37,4 +42,18 @@ nav.navbar .navbar-user{
 }
 .logo{
   width: 120px;
+}
+
+/*------ HOME PAGE -----*/
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+}
+.animeList{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }

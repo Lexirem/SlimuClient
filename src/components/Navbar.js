@@ -10,7 +10,7 @@ class Navbar extends Component {
     return (
       <nav className='navbar'>
         <Link to={"/"} id='home-btn'>
-          <img className="logo" src="https://res.cloudinary.com/dh2lo8p1f/image/upload/v1607674460/fotos/kisspng-slime-rancher-puddle-blushing-puddle-5abf99dd683f02.693974441522506205427_thp0a6.png" />
+          <img className="logo" src="https://res.cloudinary.com/dh2lo8p1f/image/upload/v1607674460/fotos/kisspng-slime-rancher-puddle-blushing-puddle-5abf99dd683f02.693974441522506205427_thp0a6.png" alt="logo"/>
         </Link>
         {isLoggedin ? (
           <>
