@@ -17,7 +17,8 @@ class AnimeDetails extends Component {
   };
 
   render() {
-    console.log(this.props.location.state.anime);
+    console.log(this.props.user.myAnime.name, "my list");
+    console.log(this.state.anime.titles.en_jp, "anime")
     return (
       <div>
         <h2>{this.state.anime.titles.en_jp}</h2>
@@ -26,11 +27,13 @@ class AnimeDetails extends Component {
         <p><b>Episodes:</b>{this.state.anime.episodeCount}</p>
         <p><b>Status:</b>{this.state.anime.status}</p>
         <p>{this.state.anime.description}</p>
+        {this.props.user.myAnime.name !== this.state.anime.titles.en_jp ? 
         <button
           onClick={() =>
             this.addToMyList({image: this.state.anime.posterImage.small, name: this.state.anime.titles.en_jp})
           }>Add to my List
-        </button>
+        </button> : null
+        }
       </div>
     );
   }

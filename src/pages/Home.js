@@ -32,17 +32,18 @@ class Home extends Component {
   render(){
     console.log(this.state.animeList, "array")
     return (
-      <div className="animeList"> 
-
+      <div> 
+        <h2>Welcome to Slimu Anime 2.0</h2>
+        <div className="animeList">
         {this.state.animeList ? this.state.animeList.map((datos) => {
           return(
             <div>
               <Link to={{pathname: "/details", state: { anime: datos } }}><img src={datos.posterImage.small} alt="anime cover" /> </Link>
             </div>
           )
-        }) : null
-      }
-      
+          }) : null
+        } 
+        </div>
       </div>
     )
   }

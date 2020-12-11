@@ -10,18 +10,24 @@ class Profile extends Component {
     userId: this.props.user._id,
     user: {},
   };
+
   getProfile = async () => {
     try{
       const res = await service.profile(this.props.match.params.id);
+      console.log(this.props.match, "res")
       this.setState({ user: res})
     } catch (error) {
       console.log(error);
     }
   };
 
-  deleteAnime = async(props) =>{
-    let { image, name } = props;
-    await axios.delete(`http://localhost:4000/profile/favorites/${this.props.user._id}`, {image, name})
+  deleteAnime = async(_id) =>{
+    try{
+      await axios.put(`http://localhost:4000/profile/favorites/${this.props.user._id}`, { _id: _id})
+      this.getProfile();
+    } catch(err){
+      console.log(err)
+    }
   };
 
   componentDidMount(){
@@ -29,21 +35,22 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.props.user.username, "data")
+    // console.log(data.image, "data")
     return (
       <div>
-        <h2>Welcome {this.props.user.username} </h2>
+        <h2>Welcome {this.state.user.username} </h2>
         <img src={this.state.user.image} alt="profile"/>
         <Link to={`/profile/${this.props.match.params.id}/edit`}>Edit your Profile</Link>
         <section>
           <p>Your Anime List</p> 
           <div>
-          {this.props.user.myAnime ? this.props.user.myAnime.map((data, index) => {
+          {this.state.user.myAnime ? this.state.user.myAnime.map((data, index) => {
+            console.log(data, "data")
             return(
                 <div>
                     <img src={data.image} alt="anime cover"/>
-                    <h4>{data.title}</h4>
-                    <button onClick={() => this.deleteAnime()}>Remove from List</button>
+                    <h4>{data.name}</h4>
+                    <button onClick={() => this.deleteAnime(data._id)}>Remove from List</button>
                 </div>    
             )
           }) : null}

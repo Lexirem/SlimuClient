@@ -27,6 +27,11 @@ class Auth {
   me() {
     return this.auth.get("/auth/me").then(({ data }) => data);
   }
+
+  profile(id){
+    return this.auth.get(`/profile/${id}`).then(({data}) => data);
+  }
+
   editUser(){
     return this.auth.get(`/profile/:id/edit`).then(({data}) => data);
   }
