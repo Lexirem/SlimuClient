@@ -32,14 +32,11 @@ class AuthProvider extends React.Component {
 
   componentDidMount() {
     auth.me()
-    //seteamos el estado a: isLoggedin: true, user: con el usuario conectado y isLoading en false 
     .then((user) => this.setState({ isLoggedin: true, user: user, isLoading: false }))
-    //seteamos el estado a: isLoggedin: false, user: null, isLoading: false 
     .catch((err) => this.setState({ isLoggedin: false, user: null, isLoading: false }));
   }
 
   signup = (user) => {
-    //desestructuramos username y password de user  
     const { email, password } = user;
     
     auth.signup({ email, password })
@@ -62,9 +59,7 @@ class AuthProvider extends React.Component {
   };
 	
   render() {
-    //desestructutamos isLoading, isLoggedin y user del estado
     const { isLoading, isLoggedin, user } = this.state;
-    // desestructuramos login, logout, signup
     const { login, logout, signup } = this;
     
     return (

@@ -30,6 +30,15 @@ class Auth {
   editUser(){
     return this.auth.get(`/profile/:id/edit`).then(({data}) => data);
   }
+  handleUpload = async (theFile)=>{
+    console.log("file in service", theFile);
+    try {
+      const res= await this.auth.post("/upload", theFile);
+      return res.data;
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 
 const axiosRequestFunctions = new Auth();

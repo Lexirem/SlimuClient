@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../lib/AuthProvider";
+import service from "../lib/auth-service";
+
 
 class EditUser extends Component {
   constructor(props) {
@@ -36,6 +38,17 @@ class EditUser extends Component {
     this.setState({ [name]: value });
   };
 
+  handleFileUpload = async (e) => {
+    const upload = new FormData();
+    upload.append("image", e.target.files[0]);
+    try {
+      const res = await service.handleUpload(upload);
+      this.setState({ image: res.secure_url });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render(){
       return(
           <div>
@@ -61,7 +74,7 @@ class EditUser extends Component {
                   <input
                     type="file"
                     name="image"
-                    onChange={(e) => this.handleChangeUser(e)}
+                    onChange={(e) => this.handleFileUpload(e)}
                   /> 
                   <input type="submit" value="Submit"/>
               </form>
