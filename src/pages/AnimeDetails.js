@@ -20,7 +20,7 @@ class AnimeDetails extends Component {
     console.log(this.props.user.myAnime.name, "my list");
     console.log(this.state.anime.titles.en_jp, "anime")
     return (
-      <div>
+      <div className="details">
         <h2>{this.state.anime.titles.en_jp}</h2>
         <h4>{this.state.anime.titles.ja_jp}</h4>
         <img src={this.state.anime.posterImage.small} alt="anime cover" />
