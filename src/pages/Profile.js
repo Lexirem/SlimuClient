@@ -37,13 +37,13 @@ class Profile extends Component {
   render() {
     // console.log(data.image, "data")
     return (
-      <div>
+      <div className="profile">
         <h2>Welcome {this.state.user.username} </h2>
-        <img src={this.state.user.image} alt="profile"/>
+        <img className="foto" src={this.state.user.image} alt="profile"/>
         <Link to={`/profile/${this.props.match.params.id}/edit`}>Edit your Profile</Link>
         <section>
           <p>Your Anime List</p> 
-          <div>
+          <div className="myList">
           {this.state.user.myAnime ? this.state.user.myAnime.map((data, index) => {
             console.log(data, "data")
             return(
