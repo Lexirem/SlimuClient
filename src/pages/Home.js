@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link } from 'react-router-dom';
+import { withAuth} from '../lib/AuthProvider';
 import axios from 'axios';
 
 class Home extends Component {
@@ -31,6 +32,7 @@ class Home extends Component {
     
   render(){
     console.log(this.state.animeList, "array")
+    console.log(this.props)
     return (
       <div className="home"> 
         <h2>Welcome to Slimu Anime 2.0</h2>
@@ -49,4 +51,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withAuth(Home);
