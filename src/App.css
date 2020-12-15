@@ -1,47 +1,40 @@
-* {
-  margin: 0;
+*,
+*:before,
+*:after {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-html,
-body,
-a,
-button,
-input{
-    width: 100%;
-    text-decoration: none;
-    font-family: "Helvetica", sans-serif;
-    font-size: 16px;
-    color: #222;
-}
-
-.navbar { 
+nav.navbar { 
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 20px;
+  padding: 10px;
   background: #0d1196; 
+  justify-content: space-between;
 }
 
-.navbar-user{
-  width: auto;
-  margin-left: 10px;
-  color: white;
+.navbar-logged {
+  display: inline;
+  justify-content: flex-end;
 }
-
-.navbar-button{
-  width: 30%;
+button.navbar-button {
+  padding: 5px 20px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 10px;
 }
-
-#home-btn {
-  width: 30%;
-  color: white;
+button.navbar-button a {
   text-decoration: none;
 }
+.home-btn {
+  display: flex;
+  margin-left: 15px;
+  width: 50px;
+  height: 50px;
+}
 .logo{
-  width: 120px;
+  width: 50px;
+  height: 50px;
 }
 
 /*------ HOME PAGE -----*/
@@ -84,5 +77,10 @@ input{
 }
 
 .myList{
-  
+  border: 2px solid black;
+  padding: 5px;
 }
+
+
+/*------ RESPONSIVE -------*/
+
