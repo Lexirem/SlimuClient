@@ -51,10 +51,10 @@ class EditUser extends Component {
 
   render(){
       return(
-          <div>
+          <div className="edit">
               <h2>Edit your Profile</h2>
               <form className="edit-info" onSubmit={this.handleFormSubmit}>
-                  <label><b>Username:</b></label>
+                  <label><b>Username: </b></label>
                   <input
                     type="text"
                     name="username"
@@ -62,7 +62,7 @@ class EditUser extends Component {
                     onChange={(e) => this.handleChangeUser(e)}
                   />
                   <br/>
-                  <label><b>Email:</b></label>
+                  <label><b>Email: </b></label>
                   <input
                     type="text"
                     name="email"
@@ -70,7 +70,7 @@ class EditUser extends Component {
                     onChange={(e) => this.handleChangeUser(e)}
                   />
                   <br/>
-                  <label><b>Image:</b></label>
+                  <label><b>Image: </b></label>
                   <input
                     type="file"
                     name="image"

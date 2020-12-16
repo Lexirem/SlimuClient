@@ -81,6 +81,21 @@ button.navbar-button a {
   padding: 5px;
 }
 
+/*----- EDIT USER -------*/
+.edit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+}
+.edit-info{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #0d1196;
+  margin: 20px;
+  padding: 15px;
+  
+}
 
 /*------ RESPONSIVE -------*/
 
