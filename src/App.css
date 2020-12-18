@@ -87,10 +87,22 @@ button.navbar-button a {
 .foto{
   width: 30%;
 }
-
 .myList{
+  text-align: center;
+  padding: 10px;
+}
+.myAnimes{
   border: 2px solid #0d1196;
   padding: 10px;
+}
+
+.myAnimu{
+  display: flex;
+  margin: 10px auto;
+}
+.myAnimu img{
+  width: 30%;
+  margin-right: 10px;
 }
 
 /*----- EDIT USER -------*/
@@ -110,4 +122,64 @@ button.navbar-button a {
 }
 
 /*------ RESPONSIVE -------*/
+@media (min-width: 750px){
+  .profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+  }
+  
+  .foto{
+    width: 20%;
+  }
+  .myList{
+    text-align: center;
+    padding: 20px;
+  }
+  .myAnimes{
+    border: 2px solid #0d1196;
+    padding: 20px;
 
+  }
+  .myAnimu{
+    display: flex;
+    margin: 10px auto;
+  }
+  .myAnimu img{
+    width: 30%;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 950px){
+  .profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+  }
+  
+  .foto{
+    width: 10%;
+  }
+  .myList{
+    text-align: center;
+    padding: 30px;
+  }
+  .myAnimes{
+    border: 2px solid #0d1196;
+    padding: 30px;
+
+  }
+  .myAnimu{
+    display: flex;
+    margin: 10px auto;
+  }
+  .myAnimu img{
+    width: 30%;
+    margin-right: 10px;
+  }
+}

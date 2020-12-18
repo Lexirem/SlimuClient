@@ -41,16 +41,18 @@ class Profile extends Component {
         <h2>Welcome {this.state.user.username} </h2>
         <img className="foto" src={this.state.user.image} alt="profile"/>
         <Link to={`/profile/${this.props.match.params.id}/edit`}>Edit your Profile</Link>
-        <section>
-          <p>Your Anime List</p> 
-          <div className="myList">
+        <section className="myList">
+          <p><b>Your Anime List</b></p> 
+          <div className="myAnimes">
           {this.state.user.myAnime ? this.state.user.myAnime.map((data, index) => {
             console.log(data, "data")
             return(
-                <div>
+                <div className="myAnimu">
                     <img src={data.image} alt="anime cover"/>
+                    <div>
                     <h4>{data.name}</h4>
                     <button onClick={() => this.deleteAnime(data._id)}>Remove from List</button>
+                    </div>
                 </div>    
             )
           }) : null}
