@@ -23,7 +23,7 @@ class Profile extends Component {
 
   deleteAnime = async(_id) =>{
     try{
-      await axios.put(`http://localhost:4000/profile/favorites/${this.props.user._id}`, { _id: _id})
+      await axios.put(`${process.env.REACT_APP_API_URI}/profile/favorites/${this.props.user._id}`, { _id: _id})
       this.getProfile();
     } catch(err){
       console.log(err)

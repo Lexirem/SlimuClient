@@ -13,7 +13,7 @@ class AnimeDetails extends Component {
 
   addToMyList = async (props) => {
     let { image, name }= props;
-    await axios.post(`http://localhost:4000/profile/favorites/${this.props.user._id}`, {image, name})
+    await axios.post(`${process.env.REACT_APP_API_URI}/profile/favorites/${this.props.user._id}`, {image, name})
     console.log(image, name);
   };
 
